@@ -1,3 +1,4 @@
+
 name: App
 description: A new Flutter project.
 
@@ -23,6 +24,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^0.12.0+4
 
 
   # The following adds the Cupertino Icons font to your application.

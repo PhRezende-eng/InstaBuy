@@ -1,6 +1,6 @@
 import 'dart:ui';
-
-import 'package:App/API.dart';
+import 'package:App/service/api.dart';
+import 'package:App/components/CustomButton.dart';
 import 'package:flutter/material.dart';
 
 class ProdutosPage extends StatefulWidget {
@@ -51,7 +51,7 @@ class _ProdutosPageState extends State<ProdutosPage> {
                   '${items[i]['name']}',
                   textAlign: TextAlign.center,
                 ),
-                Text('${items[i]['prices'][0]['price']}')
+                Text('R\$' + '${items[i]['prices'][0]['price']}'.toString())
               ],
             ),
           ],
@@ -65,33 +65,13 @@ class _ProdutosPageState extends State<ProdutosPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Project for InstaBuy'),
         centerTitle: true,
       ),
       body: Stack(
         children: [
-          Container(
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                MaterialButton(
-                  child: Text('Banners'),
-                  color: Colors.red[300],
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/first');
-                  },
-                ),
-                MaterialButton(
-                  child: Text('Produtos'),
-                  color: Colors.red[300],
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/second');
-                  },
-                ),
-              ],
-            ),
-          ),
+          CustomButton(),
           Container(
               margin: EdgeInsets.only(top: 47),
               width: MediaQuery.of(context).size.width,

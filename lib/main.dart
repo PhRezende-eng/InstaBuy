@@ -1,5 +1,5 @@
-import 'package:App/banners.dart';
-import 'package:App/produtos.dart';
+import 'package:App/screens/banners.dart';
+import 'package:App/screens/produtos.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,10 +17,9 @@ class MyApp extends StatelessWidget {
         '/second': (context) => ProdutosPage(),
       },
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: BannersPage(),
     );
   }
 }

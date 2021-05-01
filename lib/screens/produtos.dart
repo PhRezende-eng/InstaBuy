@@ -71,7 +71,10 @@ class _ProdutosPageState extends State<ProdutosPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Project for InstaBuy'),
+        title: Text(
+          'Project for InstaBuy',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: Stack(

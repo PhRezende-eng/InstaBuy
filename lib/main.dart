@@ -1,4 +1,5 @@
 import 'package:App/screens/banners.dart';
+import 'package:App/screens/home_page.dart';
 import 'package:App/screens/produtos.dart';
 import 'package:App/style.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/first',
+      initialRoute: '/',
       routes: {
+        '/': (context) => HomePage(),
         '/first': (context) => BannersPage(),
         '/second': (context) => ProdutosPage(),
       },

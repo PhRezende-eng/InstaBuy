@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:App/service/api.dart';
-import 'package:App/components/CustomButton.dart';
+import 'package:App/style.dart';
+
 import 'package:flutter/material.dart';
 
 class BannersPage extends StatefulWidget {
@@ -30,48 +31,44 @@ class _BannersPageState extends State<BannersPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Project for InstaBuy',
-          style: TextStyle(color: Colors.white),
+    return Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.white,
+              backGroundApp,
+            ],
+          ),
         ),
-        centerTitle: true,
-      ),
-      body: Stack(
-        children: [
-          CustomButton(),
-          Container(
-              margin: EdgeInsets.only(top: 48),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              color: Colors.white,
-              child: isLoad
-                  ? Container(
-                      child: Center(child: CircularProgressIndicator()),
-                    )
-                  : ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      padding: EdgeInsets.all(8.0),
-                      itemCount: banners.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return banners[index]['is_mobile'] == false
-                            ? Container()
-                            : Container(
-                                padding: EdgeInsets.only(bottom: 0),
-                                width: MediaQuery.of(context).size.width,
-                                height: 180,
-                                child: Column(
-                                  children: [
-                                    Image.network(
-                                        'https://assets.instabuy.com.br/ib.store.banner/bnr-${banners[index]['image']}'),
-                                  ],
-                                ));
-                      },
-                    ))
-        ],
-      ),
-    );
+        child: isLoad
+            ? Container(
+                child: Center(child: CircularProgressIndicator()),
+              )
+            : Padding(
+                padding: const EdgeInsets.only(
+                  top: 8.0,
+                  left: 8.0,
+                  right: 8.0,
+                ),
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: banners.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return banners[index]['is_mobile'] == false
+                        ? Container()
+                        : Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 180,
+                            child: Column(
+                              children: [
+                                Image.network(
+                                    'https://assets.instabuy.com.br/ib.store.banner/bnr-${banners[index]['image']}'),
+                              ],
+                            ));
+                  },
+                ),
+              ));
   }
 }

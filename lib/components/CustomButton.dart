@@ -1,4 +1,6 @@
+import 'package:App/style.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class CustomButton extends StatefulWidget {
   @override
@@ -20,15 +22,21 @@ class _CustomButtonState extends State<CustomButton> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MaterialButton(
-                child: Text('Banners'),
-                color: Colors.orange[300],
+                child: Text(
+                  'Banners',
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: colorInstaB,
                 onPressed: () {
                   Navigator.pushNamed(context, '/first');
                 },
               ),
               MaterialButton(
-                child: Text('Produtos'),
-                color: Colors.orange[300],
+                child: Text(
+                  'Produtos',
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: colorInstaB,
                 onPressed: () {
                   Navigator.pushNamed(context, '/second');
                 },

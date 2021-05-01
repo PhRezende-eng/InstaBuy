@@ -33,14 +33,17 @@ class _BannersPageState extends State<BannersPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Project for InstaBuy'),
+        title: Text(
+          'Project for InstaBuy',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: Stack(
         children: [
           CustomButton(),
           Container(
-              margin: EdgeInsets.only(top: 47),
+              margin: EdgeInsets.only(top: 48),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               color: Colors.white,

@@ -28,30 +28,35 @@ class _ProdutosPageState extends State<ProdutosPage> {
     super.initState();
   }
 
-  // int name(itemsWidget) {
-  //   if (itemsWidget) {}
-  // }
-
   List<Widget> indexItems(List<dynamic> items) {
     List<Widget> itemsWidget = [];
+
     for (int i = 0; i < items.length; i++) {
       itemsWidget.add(Container(
         alignment: Alignment.center,
         width: 150,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.network(
               'https://assets.instabuy.com.br/ib.item.image.small/s-${items[i]['images'][0]}',
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(
-                  '${items[i]['name']}',
-                  textAlign: TextAlign.center,
+                Container(
+                  padding: EdgeInsets.all(5),
+                  child: Text(
+                    '${items[i]['name']}',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                Text('R\$' + '${items[i]['prices'][0]['price']}'.toString())
+                Container(
+                  padding: EdgeInsets.all(5),
+                  child: Text('R\$' +
+                      '${items[i]['prices'][0]['price'].toStringAsFixed(2)}'),
+                )
               ],
             ),
           ],
@@ -73,7 +78,7 @@ class _ProdutosPageState extends State<ProdutosPage> {
         children: [
           CustomButton(),
           Container(
-              margin: EdgeInsets.only(top: 47),
+              margin: EdgeInsets.only(top: 48),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               color: Colors.white,
@@ -86,16 +91,32 @@ class _ProdutosPageState extends State<ProdutosPage> {
                       padding: EdgeInsets.all(2.0),
                       itemCount: collectionItems.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                            padding: EdgeInsets.only(bottom: 0),
-                            width: MediaQuery.of(context).size.width,
-                            height: 250,
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: indexItems(
-                                collectionItems[index]['items'],
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.only(left: 30),
+                              child: Text(
+                                collectionItems[index]['title'],
                               ),
-                            ));
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(bottom: 0),
+                              width: MediaQuery.of(context).size.width,
+                              height: 270,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  Row(
+                                    children: indexItems(
+                                      collectionItems[index]['items'],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
                       },
                     ))
         ],

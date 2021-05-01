@@ -9,10 +9,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _screenIndex = 0;
+
   final List<Widget> _screens = [
     BannersPage(),
     ProdutosPage(),
   ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _screenIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +59,5 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  }
-
-  void onTabTapped(int index) {
-    setState(() {
-      _screenIndex = index;
-    });
   }
 }

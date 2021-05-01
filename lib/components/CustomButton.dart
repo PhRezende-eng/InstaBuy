@@ -26,7 +26,7 @@ class _CustomButtonState extends State<CustomButton> {
                   'Banners',
                   style: TextStyle(color: Colors.white),
                 ),
-                color: colorInstaB,
+                color: orangeInstaB,
                 onPressed: () {
                   Navigator.pushNamed(context, '/first');
                 },
@@ -36,7 +36,7 @@ class _CustomButtonState extends State<CustomButton> {
                   'Produtos',
                   style: TextStyle(color: Colors.white),
                 ),
-                color: colorInstaB,
+                color: orangeInstaB,
                 onPressed: () {
                   Navigator.pushNamed(context, '/second');
                 },

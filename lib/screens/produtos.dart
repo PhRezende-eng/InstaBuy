@@ -78,11 +78,9 @@ class _ProdutosPageState extends State<ProdutosPage> {
                           child: ListView(
                             scrollDirection: Axis.horizontal,
                             children: [
-                              Row(
-                                children: indexItems(
-                                  collectionItems[index]['items'],
-                                ),
-                              ),
+                              CustomInfoProductList(
+                                items: collectionItems[index]['items'],
+                              )
                             ],
                           ),
                         ),

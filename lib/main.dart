@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         '/second': (context) => ProdutosPage(),
       },
       theme: ThemeData(
-        primaryColor: orangeInstaB,
+        primaryColor: orangeInstaBuy,
       ),
     );
   }

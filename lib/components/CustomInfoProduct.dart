@@ -12,12 +12,12 @@ List<Widget> indexItems(List<dynamic> items) {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(
-              left: 5,
-              right: 5,
-            ),
-            child: Image.network(
-              'https://assets.instabuy.com.br/ib.item.image.small/s-${items[i]['images'][0]}',
+            padding: EdgeInsets.only(left: 5, right: 5),
+            child: Material(
+              color: Colors.white,
+              child: Image.network(
+                'https://assets.instabuy.com.br/ib.item.image.small/s-${items[i]['images'][0]}',
+              ),
             ),
           ),
           Column(

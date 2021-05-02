@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:App/components/CustomProducts.dart';
+import 'package:App/components/CustomFunctionProduct.dart';
 import 'package:App/service/api.dart';
 import 'package:App/style.dart';
 import 'package:flutter/material.dart';
